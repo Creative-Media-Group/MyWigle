@@ -25,38 +25,36 @@ from pygle.config import user
 auth = requests.auth.HTTPBasicAuth(user, key)
 
 
-def get(section, endpoint, **kwargs):    
+def get(section, endpoint, **kwargs):
     """Make a GET request using Basic auth.
 
     Returns
     -------
     dict
-    
+
     Raises
     ------
     requests.HTTPError
-    
+
     """
     path = url.format(**locals())
     r = requests.get(path, auth=auth, params=kwargs)
     r.raise_for_status()
     return r.json()
-    
 
-def post(section, endpoint, **kwargs):    
+
+def post(section, endpoint, **kwargs):
     """Make a POST request using Basic auth.
 
     Returns
     -------
     dict
-    
+
     Raises
     ------
     requests.HTTPError
-    
+
     """
-    r = requests.post(url.format(**locals()),
-                      auth=auth,
-                      params=kwargs)
+    r = requests.post(url.format(**locals()), auth=auth, params=kwargs)
     r.raise_for_status()
     return r.json()
