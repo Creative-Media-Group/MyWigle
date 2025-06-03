@@ -6,7 +6,7 @@
 #  http://opensource.org/licenses/MIT)
 # =======================================================================
 """
-Network search and information tools 
+Network search and information tools
 
 """
 from __future__ import absolute_import
@@ -20,36 +20,43 @@ from pygle.http import post
 
 def comment(netid, comment):
     """Add a comment to a network
-    
+
     Provide custom information regarding a single network.
-    
+
     Parameters
     ----------
     netid : str
         The BSSID of the network for the comment, e.g. '0A:2C:EF:3D:25:1B'.
-    comment : str    
+    comment : str
         The comment to attach.
-        
+
     Returns
     -------
     dict
-    
+
     Raises
     ------
     requests.HTTPError
-    
+
     """
-    return post('network', 'comment', **locals())
-    
-    
-def detail(netid=None, operator=None, lac=None, cid=None, system=None,
-           network=None, basestation=None):
+    return post("network", "comment", **locals())
+
+
+def detail(
+    netid=None,
+    operator=None,
+    lac=None,
+    cid=None,
+    system=None,
+    network=None,
+    basestation=None,
+):
     """Get details and observation records for a single network
-    
-    Provide unique information for a WiFi or cell network to request detailed 
-    information. Providing a netId value searches WiFi, operator searches GSM, 
+
+    Provide unique information for a WiFi or cell network to request detailed
+    information. Providing a netId value searches WiFi, operator searches GSM,
     and system searches CDMA.
-    
+
     Parameters
     ----------
     netid : str, optional
@@ -66,63 +73,75 @@ def detail(netid=None, operator=None, lac=None, cid=None, system=None,
         CDMA Network ID.
     basestation : int, optional
         CDMA Base Station ID.
-    
+
     Returns
     -------
     dict
-    
+
     Raises
     ------
     requests.HTTPError
-    
+
     """
-    return get('network', 'detail', **locals())
-    
+    return get("network", "detail", **locals())
+
 
 def geocode(addresscode=None):
     """Get coordinates for an address for use in searching
-    
+
     Relies on OpenStreetMap nominatim.
-    
+
     Parameters
     ----------
     addresscode : str
         An address string, Street, City, State/Region, Country.
-    
+
     Returns
     -------
     dict
-    
+
     Raises
     ------
     requests.HTTPError
-    
+
     """
-    return get('network', 'geocode', **locals())
-    
-    
-def search(onlymine=None, first=None, latrange1=None, latrange2=None,
-           longrange1=None, longrange2=None,
-           lastupdt=None, freenet=None, paynet=None, netid=None, 
-           ssid=None, ssidlike=None, variance=None, resultsPerPage=None):
+    return get("network", "geocode", **locals())
+
+
+def search(
+    onlymine=None,
+    first=None,
+    latrange1=None,
+    latrange2=None,
+    longrange1=None,
+    longrange2=None,
+    lastupdt=None,
+    freenet=None,
+    paynet=None,
+    netid=None,
+    ssid=None,
+    ssidlike=None,
+    variance=None,
+    resultsPerPage=None,
+):
     """Search the WiGLE database
-    
-    Query the WiGLE database for paginated results based on multiple criteria. 
-    API and session authentication default to a page size of 100 results/page. 
-    COMMAPI defaults to a page size of 25 with a maximum of 1000 results per 
-    return. Number of daily queries allowed per user are throttled based on 
+
+    Query the WiGLE database for paginated results based on multiple criteria.
+    API and session authentication default to a page size of 100 results/page.
+    COMMAPI defaults to a page size of 25 with a maximum of 1000 results per
+    return. Number of daily queries allowed per user are throttled based on
     history and participation
-    
+
     Parameters
     ----------
     onlymine : boolean, optional
-        Search only for points first discovered by the current user. Use any 
-        string to set, leave unset for general search. Can't be used with 
+        Search only for points first discovered by the current user. Use any
+        string to set, leave unset for general search. Can't be used with
         COMMAPI auth, since these are points you have locally.
     first : int, optional
-        Result offset to fetch, used to page through results. Defaults to 0. 
-        COMMAPI queries are bounded at 100 pages. If you need more open-ended 
-        searches than this, we recommend contacting WiGLE-admin@wigle.net to 
+        Result offset to fetch, used to page through results. Defaults to 0.
+        COMMAPI queries are bounded at 100 pages. If you need more open-ended
+        searches than this, we recommend contacting WiGLE-admin@wigle.net to
         discuss bulk pricing.
     latrange1 : float, optional
         Lesser of two latitudes by which to bound the search.
@@ -140,7 +159,7 @@ def search(onlymine=None, first=None, latrange1=None, latrange2=None,
     paynet : boolean, optional
         Include only networks that have been marked as for-pay access.
     netid : str, optional
-        Include only networks matching the string network BSSID, e.g. 
+        Include only networks matching the string network BSSID, e.g.
         '0A:2C:EF:3D:25:1B' or '0A:2C:EF'. The first three octets are required.
     ssid : str, optional
         Include only networks exactly matching the string network name.
@@ -157,10 +176,10 @@ def search(onlymine=None, first=None, latrange1=None, latrange2=None,
     Returns
     -------
     dict
-    
+
     Raises
     ------
     requests.HTTPError
-    
+
     """
-    return get('network', 'search', **locals())
+    return get("network", "search", **locals())

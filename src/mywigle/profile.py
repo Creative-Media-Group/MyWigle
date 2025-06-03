@@ -20,37 +20,37 @@ from pygle.http import get
 
 def apiToken(token_type=None):
     """Get all authorization tokens for the logged-in user
-    
+
     Parameters
     ----------
     token_type : str
         Token types - 'API', 'COMMAPI', or 'ANDROID'.
-        
+
     Returns
     -------
     dict
-    
+
     Raises
     ------
     requests.HTTPError
-    
+
     """
-    params = {'type': token_type}  # required because "type" is a reserved word
-    return get('profile', 'apiToken', **params)
+    params = {"type": token_type}  # required because "type" is a reserved word
+    return get("profile", "apiToken", **params)
 
 
 def user():
     """Get the user object for the current logged-in user
-    
+
     See basic user information.
-    
+
     Returns
     -------
     dict
-    
+
     Raises
     ------
     requests.HTTPError
-    
+
     """
-    return get('profile', 'user')
+    return get("profile", "user")

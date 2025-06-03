@@ -25,6 +25,7 @@ key = ""
 try:
     # for use in dev environment
     from pygle.dev.config import *
+
     print(user)
     print(key)
 except ImportError:
@@ -33,5 +34,5 @@ except ImportError:
 if user == "" or key == "":
     print("Visit https://wigle.net/account to collect your API token")
     here = os.path.abspath(__file__)
-    here.replace('.pyc', '.py')
+    here.replace(".pyc", ".py")
     print("Then add your credentials to %s" % here)
