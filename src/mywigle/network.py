@@ -14,8 +14,8 @@ from __future__ import division
 from __future__ import print_function
 from __future__ import unicode_literals
 
-from pygle.http import get
-from pygle.http import post
+from mywigle.http import get
+from mywigle.http import post
 
 
 def comment(netid, comment):

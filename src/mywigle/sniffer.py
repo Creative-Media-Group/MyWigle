@@ -21,7 +21,7 @@ import time
 
 import requests
 
-from pygle import network
+from mywigle import network
 
 
 scan_cmd = {

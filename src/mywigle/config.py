@@ -24,7 +24,7 @@ key = ""
 
 try:
     # for use in dev environment
-    from pygle.dev.config import *
+    from mywigle.dev.config import *
 
     print(user)
     print(key)

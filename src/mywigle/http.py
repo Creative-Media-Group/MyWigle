@@ -17,9 +17,9 @@ from __future__ import unicode_literals
 
 import requests
 
-from pygle.config import key
-from pygle.config import url
-from pygle.config import user
+from mywigle.config import key
+from mywigle.config import url
+from mywigle.config import user
 
 
 auth = requests.auth.HTTPBasicAuth(user, key)
