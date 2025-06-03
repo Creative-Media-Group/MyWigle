@@ -1,5 +1,5 @@
 mywigle is a wrapper for the WiGLE WiFi mapping API
-
+contains ai content
 # Installation
 To install mywigle for Python 2.x or 3.x just call ``pip install mywigle``<br>
 You'll also need to set up an account with WiGLE and retrieve your AP
