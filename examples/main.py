@@ -1,3 +1,4 @@
-from mywigle import network
+from mywigle import MyWigleClient
 
-print(network.geocode(addresscode="London"))
+client = MyWigleClient(user="USER", key="KEY")
+print(client.network_geocode(addresscode="London"))
