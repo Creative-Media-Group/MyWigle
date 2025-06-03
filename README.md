@@ -52,3 +52,6 @@ The sections and endpoints available are
 - `profile <https://api.wigle.net/swagger#/User_profile_operations>`_
    - `apiToken <https://api.wigle.net/swagger#!/User_profile_operations/apiToken>`_
    - `user <https://api.wigle.net/swagger#!/User_profile_operations/user>`_
+
+# Thanks to ...
+- @jamiebull1 ([pygle at PyPi](https://pypi.org/project/pygle/))
